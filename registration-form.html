@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>REGISTRATION FORM</title>
+</head>
+<body>
+	<h1>CREATE YOU ACCOUNT</h1>
+
+	<!-- Section 1 Personal Infromation  -->
+
+	<fieldset>
+		<legend>Personal Details</legend>
+
+		<label for="fname">First Name *</label>
+		<input type="text" id="fname" name="fname" placeholder="e.g Mitchell" required><br><br>
+
+		<label for="lname">Last Name *</label>
+		<input type="text" id="lname" name="lname" placeholder="e.g. Carrie" required><br><br>
+
+		<label for="dob">Date of Birth</label>
+		<input type="date" id="dob" name="dob"><br><br>
+
+		<label>Gender</label>
+		<input type="radio" name="gender" value="male"> Male
+		<input type="radio" name="gender" value="male"> Female
+	</fieldset>
+
+	<!-- Section 2 Account Details -->
+	 <fieldset>
+		<legend>Account Details</legend>
+
+		<label for="email">Email Address *</label>
+		<input type="email" id="email" name="email" placeholder="e.g. Mr...Mitch@hotmail.com"> <br>
+
+		<label for="pass">Password *</label><br>
+		<input type="password" id="pass" name="password" placeholder="Min. 8 characters" minlength="8" required><br> <br>
+
+		<label for="country">Country</label>
+		<select name="Country" id="Country">
+			<option value="">-- Select Country</option>
+			<option value="gh">Ghana</option>
+			<option value="ng">Nigeria</option>
+			<option value="sa">South Africa</option>
+		</select> <br><br>
+
+		<label for="bio">Short Bio</label>
+		<textarea name="bio" id="bio" rows="4" placeholder="Tell us about yourself"></textarea>
+	 </fieldset>
+
+	 <!-- Agreemen  Submit -->
+	  <input type="checkbox" name="agree" required>
+	  I AGREE TO THE TERMS AND CONDITIONS <br><br>
+
+	  <button type="submit">Create Account</button>
+	  <button type="reset">clear</button>
+
+
+
+</body>
+</html>

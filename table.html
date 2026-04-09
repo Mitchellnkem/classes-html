@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple Table Layout Website</title>
+
+	<style>
+		body{
+			font-family: Arial, Helvetica, sans-serif;
+			margin: 0;
+			background: #f7f7f7;
+			color: #222;
+		}
+		table.layout{
+			width:100%;
+			max-width: 1200px;
+			margin: 20px auto;
+			background: #fff;
+			border-collapse: collapse;
+			/* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+		}
+		td.header{
+			background: #2c7be5;
+			color: #fff;
+			padding: 17px;
+			font-size: 1.5rem;
+		}
+		td.nav{
+			width:180px;
+			vertical-align: top;
+			background: #f1f5fb;
+			padding: 20px;
+		}
+		td.content {
+			padding: 18px;
+			vertical-align: top;
+		}
+		td.footer {
+			background: #f2f2f2;
+			padding: 12px;
+			text-align: center;
+			font-size: 0.95rem;
+			color: #555;
+		}
+		a.nav-link {
+			display: block;
+			padding: 8px 6px;
+			color: #2c7be5;
+			text-decoration: none;
+			margin-bottom: 6px;
+		}
+		a.nav-link:hover {
+			text-decoration: underline;
+		}
+		h2.section-title {
+			margin-top: 0;
+			color: #1f4f8b;
+		}
+		.service-list {
+			margin: 0;
+			padding-left: 1.1rem;
+		}
+
+		/* Contact form styles */
+    table.contact {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table.contact td {
+      padding: 6px;
+    }
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cfcfcf;
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-size: 0.95rem;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    input[type="submit"] {
+      background: #2c7be5;
+      color: #fff;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    input[type="submit"]:hover { background: #235fb8; }
+    /* Small screens */
+    @media (max-width: 640px) {
+      td.nav { display: none; }
+      table.layout { margin: 10px; }
+    }
+
+
+	</style>
+</head>
+<body>
+	<!-- Outer table used for page layout -->
+	<table class="layout" role="presentation">
+		<!-- this is my header row -->
+		 <tr>
+			<td class="header" colspan="2">
+				<strong>My Teaching Site</strong>
+				<span style="float:right" font-size:1rem; opacity:0.9;> Today we will build a webpage with tables </span>
+			</td>
+		 </tr>
+
+		 <!-- Main content row: left nav+content -->
+		  <tr>
+			<!-- left navigation colum (table cell) -->
+			<td class="nav" role="navigation">
+				<a href="#home">Home</a>
+				<a href="#about">About</a>
+				<a href="#service">Service</a>
+				<a href="#contact">Contact</a>
+			</td>
+
+			<!-- right content column (table cell) -->
+			 <td class="content">
+				<h1>Welcome to my teaching site</h1>
+				<!-- HOME SECTION -->
+				 <section id="home">
+					<h2 class="section-title">Home</h2>
+					 <p>Welcome to this simple table-based webpage. This example demonstrates how tables can be used for layout in a straightforward, classroom-friendly way.</p>
+				</section>
+				 <hr />
+
+				<!-- ABOUT SECTION -->
+				 
+				<section id="about">
+					<h2 class="section-title">About</h2>
+					<p>This site is a minimal example intended for teaching HTML structure and basic styling. It uses a table for the overall page layout and a small form in the contact area.</p>
+				</section>
+        		<hr />
+
+        		<!-- Services section -->
+				<section id="services">
+					<h2 class="section-title">Services</h2>
+					<p>Below are a few sample services we offer to students or clients:</p>
+					<ul class="service-list">
+						<li><strong>Web Fundamentals</strong> — HTML &amp; CSS basics</li>
+						<li><strong>Interactive Lessons</strong> — Hands-on coding exercises</li>
+						<li><strong>Project Reviews</strong> — Feedback and improvement tips</li>
+					</ul>
+				</section>
+        		<hr />
+
+				<!-- Contact section with a simple form (inside a table) -->
+				<section id="contact">
+				<h2 class="section-title">Contact</h2>
+				<p>If students or visitors want to reach out, they can use the form below.</p>
+
+			<!-- Contact form uses a table for alignment -->
+			<form method="post" action="#" novalidate>
+				<table class="contact" role="presentation">
+				<tr>
+					<td><label for="name"><strong>Name</strong></label></td>
+					<td><input id="name" name="name" type="text" placeholder="Your name" required></td>
+				</tr>
+				<tr>
+					<td><label for="email"><strong>Email</strong></label></td>
+					<td><input id="email" name="email" type="email" placeholder="you@example.com" required></td>
+				</tr>
+				<tr>
+					<td><label for="message"><strong>Message</strong></label></td>
+					<td><textarea id="message" name="message" placeholder="Write your message here..." required></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Send Message"></td>
+				</tr>
+				</table>
+			</form>
+			</section>
+
+    	</td>
+	</tr>
+
+	<!-- THIS IS MY FOOTER -->
+	 	<tr>
+			<td class="footer">
+				&copy; <span id="year">My Teaching Site- Built with tables for demoonstration</span> | All rights reserved.
+			</td>
+		</tr>
+	</table>
+
+	<script>
+		// A little javascript to set the current year in the footer
+		document.getElementById("year").textContent = new Date().getFullYear();
+	</script>
+</body>
+</html>
