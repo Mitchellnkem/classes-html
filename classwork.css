@@ -1,0 +1,40 @@
+*{
+	box-sizing: border-box; /*widths includes paddign  border*/
+}
+
+body{
+	font-family: sans-serif;
+
+}
+
+.card{
+	width: 300px;
+	padding: 25px;
+	border: 1px solid whitesmoke;
+	border-radius: 15px;
+	margin: 50px auto;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.card h2{
+	padding: 10px;
+	margin: 4px;
+}
+
+.card p{
+	padding: 5px 0;
+	margin: 8px;
+	color: black;
+	font-size: 15px;
+}
+
+.card button{
+	padding: 10px 20px;
+	border: 1px solid #534AB7;
+	border-radius: 8px;
+	background-color: #534AB7;
+	color: white;
+	font-size: 15px;
+	cursor: pointer;
+	width: 100%;
+}

@@ -1,0 +1,113 @@
+*{ box-sizing: border-box; margin: 0; padding: 0;}
+
+body{
+	font-family: sans-serif;
+	background: #f5f5f5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 2rem;
+
+}
+
+.cards{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+	max-width: 900px;
+	width: 100%;
+
+}
+
+.card{
+	display: flex;
+	flex-direction: column;
+	background: whitesmoke;
+	padding: 25px 20px;
+	border: 1px solid whitesmoke;
+	border-radius: 15px;
+	gap: 16px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+.card.recommended{
+	border: 2px solid #378ADD;
+}
+
+.badge{
+	display: inline-block;
+	background: #e6f1fb;
+	color: #378ADD;
+	font-size: 12px;
+	padding: 3px 10px;
+	border-radius: 8px;
+	align-self: flex-start;
+}
+
+.title{
+	font-size: 28px;
+	font-weight: 600;
+	color: #111;
+}
+
+.price{
+	font-size: 24px;
+	font-weight: 500;
+	color: #111;
+}
+
+.price span{
+	font-size: 14px;
+	font-weight: 400;
+	color: #888
+}
+
+ul{
+	list-style-type: none;
+	display :flex;
+	flex-direction: column;
+	gap: 10px;
+	/* margin: 20px 0; */
+	border-top: 1px solid #eee;
+}
+
+li{
+	font-size:14px;
+	color: #555;
+	padding-left: 14px;
+	position: relative;
+}
+
+
+li::before{
+	content: "✓";
+	color: #378ADD;
+	position: absolute;
+	left: -10px;
+	font-size: 12px;
+}
+
+button{
+	margin-top: auto;
+	padding: 9px 0;
+	border: 1px solid #378ADD;
+	border-radius: 8px;
+	background: transparent;
+	color: #111;
+	font-size: 13px;
+	cursor: pointer ;
+}
+
+.card.recommended button{
+	background: #378ADD;
+	color: white;
+	border: 1px solid #378ADD;
+}
+
+button:hover{
+	background: #378ADD;
+	color: white;
+	border: 1px solid #378ADD;
+}
