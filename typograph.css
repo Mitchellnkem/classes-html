@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+	--primary-color: #378ADD;
+	--secondary-color: #e6f1fb;
+	accent-color: #ff6347;
+	--text-color: #111;
+	--background-color: tomato;
+	--font-body: 'Roboto', sans-serif;
+}
+
+
+#r{
+	font-family: Arial, Helvetica, sans-serif;
+	/* font-size: 16px; */
+	font-weight: 100;
+	font-style: oblique;
+	font-size: 1.125rem;
+
+}
+
+
+/* font-weight, font-style, line-height, letter-spacing */
+
+#g{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+	font-style: normal;
+	line-height: 1.5;
+	letter-spacing: 2px;
+	/* font-size: 2.5rem; */
+	font-size: 40px;
+	text-transform: uppercase;
+	background-color: var(--background-color);
+
+}
+#g1{
+	text-align: center;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	/* text-shadow: 2px 2px 4px rgba(0,0,0,0.5);  */
+
+
+	/* color formats, Named color, Hex(6digit, 3digit(shorthand)), RGB, RGBA, HSL, HSLA */
+
+	/* color: dodgerblue;
+	color: #fb9494;
+	color: #000; */
+	color: rgb(255,0,0);
+	color: rgba(255,0,0,0, 0.8);
+	color: hsl(0, 25%, 75%);
+	color: hsla(0,100%,50%,0.5);
+	font-family: var(--font-body);
+	color: var(--text-color);
+	
+
+
+
+}
+
+/* html {font-size: 16px}  Root font size 
+
+p {font-size: 16px;} fixed pixels
+p {font-size: 1rem;} same as 16px (relative to root font size)
+p {font-size: 100%;} relative to root font size
+p {font-size: 1.125rem;} 18px (1.125 x 16)
+small {font-size: 0.875rem;} 14px (0.875 x 16)
+h1 {font-size: 2.5rem;} 40px (2.5 x 16)
+ 
+*/

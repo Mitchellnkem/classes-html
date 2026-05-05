@@ -1,0 +1,87 @@
+*{
+	margin:0 ;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: hsl(30, 65%, 93%);
+	width: 100%;
+	height: 100vh;
+
+}
+
+.all{
+	display: flex;
+	margin-top: 20px;
+}
+
+.some{
+	background-color: rgb(235, 320, 179);
+	padding-left: 30px;
+	justify-content: center;
+	align-items: center;
+	width: 309px;
+	border-radius: 0.5rem;
+}
+
+.some h1{
+	color: rgb(212, 21, 140);
+	line-height: 1.8rem;
+}
+
+.some h2{
+	letter-spacing: 0.3rem;
+	text-transform: uppercase;
+	margin-top: 40px;
+	font-size: 1rem;
+}
+.up{
+	padding: 20px 10px;
+}
+
+.some p{
+	color: hsl(230, 14%, 50%);
+	font-size: 1.2rem;
+}
+
+.cta{
+	padding: 12px;
+	width: 234px;
+	justify-content: center;
+	background-color: rgb(184, 152, 213);
+	border-radius: 0.5rem;
+	
+}
+
+.turn{
+	margin-left: 15px;
+	color: black;
+	font-size:1rem
+}
+
+.img1{
+	width: 303px;
+	margin-left: -30px;
+	border-radius: 0.4rem
+}
+
+.al {
+	margin-left: 21px ;
+	text-decoration: line-through;
+}
+
+.number{
+	font-size: 2rem;
+	color: hsl(158, 37%, 38%);
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	
+}
+
+.money{
+	display: flex;
+	align-items: center;
+}

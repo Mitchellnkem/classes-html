@@ -1,0 +1,15 @@
+Build a complete webpage header and features section:
+Section 1 — Sticky Navigation:
+Logo + nav links using justify-content: space-between
+A 'Get Started' button on the right with a distinct background colour
+Section 2 — Hero:
+A flex container that centres its content both horizontally and vertically
+Min-height: 80vh, gradient background, h1 title, p subtitle, two buttons side by side (gap: 16px)
+Section 3 — 4-Feature Row:
+4 cards in a horizontal row using Flexbox and gap
+Each card with an emoji icon, bold title, and description paragraph
+Document in comments which Flexbox properties you used and why. Submit: index.html + styles.css
+
+
+You can access https://www.w3schools.com/css
+If you get stuck on the way

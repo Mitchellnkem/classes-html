@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple One Page Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #333;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* HERO */
+        .hero {
+            height: 90vh;
+            background: url('https://picsum.photos/1200/800') no-repeat center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        /* CONTENT */
+        .container {
+            padding: 40px;
+        }
+
+        .content {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .content img {
+            width: 50%;
+            border-radius: 10px;
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .content img {
+                width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h2>MySite</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <h1>Welcome to My Website</h1>
+            <p>Simple, Clean and Responsive Design</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="container">
+        <div class="content">
+            <img src="https://picsum.photos/600/400" alt="Sample Image">
+            <div class="text">
+                <h2>About Us</h2>
+                <p>
+                    This is a simple one-page website layout built using HTML and CSS.
+                    It demonstrates Flexbox, responsive design, and a clean structure.
+                </p>
+                <p>
+                    You can expand this into a full project or use it to teach beginners.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 My Website | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

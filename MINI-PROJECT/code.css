@@ -1,0 +1,92 @@
+/* Universal Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 1. STICKY NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+/* 2. HERO SECTION */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a73e8, #8ab4f8);
+    color: white;
+    text-align: center;
+}
+
+/* 3. FEATURES ROW */
+.features {
+    display: flex;
+    gap: 20px;
+    padding: 50px 5%;
+}
+
+.card {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* 4. TWO-COLUMN SECTION */
+.two-column {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 50px 5%;
+}
+
+.graphic, .content {
+    flex: 1;
+}
+
+.graphic img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 5. FOOTER */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 5%;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-columns ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons span {
+    margin-left: 10px;
+    cursor: pointer;
+}
