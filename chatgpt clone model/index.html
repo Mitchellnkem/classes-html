@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ChatGPT Clone</title>
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Google Fonts: Sora (display) + DM Mono (code) -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+  	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" /> 
+
+	<!-- Favicon
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+
+	<!-- Theme: Default (dark) -->
+	<!-- <script>
+		document.documentElement.setAttribute('data-theme', 'dark');
+	</script> --> --
+
+</head>
+<body>
+	<!-- ========================= SIDEBAR ========================= -->
+	 <aside class="sidebar" id="sidebar" aria-label="Chat history sidebar">
+
+			<!-- Sidebar Header -->
+		<div class="sidebar__header">
+				<button class="btn btn--new-chat" id="newChatBtn" aria-label="Start new chat">
+				<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M12 5v14M5 12h14"/></svg>
+				New chat
+				</button>
+			<!-- Mobile sidebar toggle (close) -->
+			<button class="btn btn--icon sidebar__close" id="sidebarClose" aria-label="Close sidebar">
+				<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M18 6L6 18M6 6l12 12"/></svg>
+			</button>
+		</div>
+
+		<!-- chat History List -->
+
+		<nav class="sidebar__history" aria-label="Chat History">
+			<p class="sidebar__Section-label">Recent</p>
+			<ul class="chat-list" id="chatList" role="list">
+				<!-- Chat items injected by JS -->
+			</ul>
+		</nav>
+
+		<!-- Sidebar Footer -->
+		 <div class="sidebar__footer">
+			<!-- theme Toggle -->
+			 <button class="btn btn--theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+				<svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="5"/>
+					<line x1="12" y1="1" x2="12" y2="3"/>
+					<line x1="12" y1="21" x2="12" y2="23"/>
+					<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+					<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+					<line x1="1" y1="12" x2="3" y2="12"/>
+					<line x1="21" y1="12" x2="23" y2="12"/>
+					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+				</svg>
+				<svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+				</svg>
+				<span class="theme-label">Light Mode</span>
+			</button>
+
+			<div class="sidebar__user">
+				<div class="avatar" aria-hidden="true">M</div>
+				<span class="sidebar__username">Mitchell</span>
+			</div>
+		 </div>
+	 </aside>
+
+	 <!-- Sidebar baackdrop (mobile) -->
+
+	 <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- ================= MAIN AREA=================== -->
+  	<main class="main" id="main">
+
+		<!-- Top Header -->
+		<header class="header" role="banner">
+			<!-- Mobile menu toggle -->
+			<button class="btn btn--icon header__menu" id="sidebarOpen" aria-label="Open sidebar">
+				<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="3" y1="6" x2="21" y2="6"/>
+				<line x1="3" y1="12" x2="21" y2="12"/>
+				<line x1="3" y1="18" x2="21" y2="18"/>
+				</svg>
+			</button>
+
+			<div class="header__center">
+				<span class="header__title">ChatGPT</span>
+				<span class="header__model-badge">GPT-4o</span>
+			</div>
+
+			<!-- Placeholder right actions -->
+			<div class="header__right" aria-hidden="true"></div>
+		</header>
+
+
+		<!-- ============= CHAT WINDOW =============== -->
+		<section class="chat-window" id="chatWindow" aria-label="Conversation" aria-live="polite">
+
+			<!-- Empty state (shown when no messages) -->
+			<div class="empty-state" id="emptyState">
+				<div class="empty-state__logo" aria-hidden="true">
+					<svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.505-3.406 10.079 10.079 0 0 0-10.44 4.963 9.964 9.964 0 0 0-6.659 4.834 10.079 10.079 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 6.504 3.406 10.079 10.079 0 0 0 10.44-4.963 9.965 9.965 0 0 0 6.66-4.834 10.079 10.079 0 0 0-1.24-11.818zm-17.223 24.205a7.476 7.476 0 0 1-4.801-1.73c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.487 7.686zm-16.124-6.876a7.474 7.474 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zm-2.07-17.392a7.477 7.477 0 0 1 3.908-3.292c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L8.017 23.012a7.504 7.504 0 0 1-3.902-10.205zm27.658 6.437l-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929l-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943l4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V21.187z" fill="currentColor"/>
+					</svg>
+			  	</div>
+			  		<h1 class="empty-state__title">How can I help you today?</h1>
+				<div class="empty-state__suggestions" role="list">
+					<button class="suggestion-card" data-prompt="Explain quantum computing in simple terms" role="listitem">
+						<span class="suggestion-card__icon">⚛️</span>
+						<span>Explain quantum computing in simple terms</span>
+						</button>
+					<button class="suggestion-card" data-prompt="Write a JavaScript function to debounce API calls" role="listitem">
+						<span class="suggestion-card__icon">💻</span>
+						<span>Write a JS function to debounce API calls</span>
+					</button>
+
+					<button class="suggestion-card" data-prompt="Give me 5 tips to improve my CSS skills" role="listitem">
+						<span class="suggestion-card__icon">🎨</span>
+						<span>Give me 5 tips to improve my CSS skills</span>
+					</button>
+					<button class="suggestion-card" data-prompt="What are the best practices for REST API design?" role="listitem">
+						<span class="suggestion-card__icon">🔗</span>
+						<span>Best practices for REST API design</span>
+					</button>
+			 	</div>
+			</div>
+	  
+			<!-- Messages container -->
+			<div class="messages" id="messages" role="log" aria-label="Chat messages"></div>
+	  
+		</section>
+
+		<!-- ============= INPUT SECTION =============== -->
+		 <footer class="input-area" role="contentinfo">
+			<div class="input-wrapper">
+				<textarea  id="UserInput" class="input-textarea" placeholder="Message ChatGPT..." aria-label="Message input" rows="1" aria-multiline="true"></textarea>
+
+				<button class="btn btn--send" id="sendBtn" aria-label="Send message">
+					<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="22" y1="2" x2="11" y2="13"/>
+						<polygon points="22 2 15 22 11 13 2 9 22 2"/>
+					</svg>
+				</button>
+			</div>
+				<p class="input-area__disclaimer">
+					ChatGPT can make mistakes. Consider checking important informations.
+				</p>
+		 </footer>
+	</main>	
+
+		<!-- ============ CONTEXT MENU (rename/delete) ================= -->
+		<div class="context-menu" id="contextMenu" role="menu" aria-label="Chat options">
+			<button class="context-menu__item" id="renameChat" role="menuitem">
+				<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+						<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+				</svg>
+			  Rename
+			</button>
+			<button class="context-menu__item context-menu__item--danger" id="deleteChat" role="menuitem">
+				<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="3 6 5 6 21 6"/>
+					<path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+					<path d="M10 11v6M14 11v6"/>
+					<path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+				</svg>
+			  Delete chat
+			</button>
+		</div>
+
+
+		<!-- inline rename input (injected when neede) -->
+		 <script src="js/app.js"></script>
+
+</body>
+</html>
