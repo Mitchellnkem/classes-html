@@ -188,5 +188,35 @@ textarea{
 	transition: background var(--transition), opacity var(--transition), transform 100ms ease;
 }
 
+.btn--send:hover:not(:disabled) { background: var(--accent-hover); }
+.btn--send:active:not(:disabled) { transform: scale(0.92); }
+.btn--send:disabled {
+  background: var(--bg-hover);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Theme toggle */
+.btn--theme-toggle {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 12px;
+	border-radius: var(--radius-md);
+	color: var(--text-secondary);
+	font-size: 0.85rem;
+	width: 100%;
+}
+
+.btn--theme-toggle:hover { background: var(--bg-hover); color: var(--text-primary); }
+.icon--sun { display: none; }
+.icon--moon { display: block; }
+[data-theme="light"] .icon--sun { display: block; }
+[data-theme="light"] .icon--moon { display: none; }
+[data-theme="light"] .theme-label::before { content: "Dark mode"; }
+.theme-label::before { content: "Light mode"; }
+.theme-label { font-size: 0; } /* hide text, use ::before */
+.theme-label::before { font-size: 0.85rem; }
+
 
 
