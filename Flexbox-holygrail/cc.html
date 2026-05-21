@@ -1,0 +1,471 @@
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES (Design Tokens)
+       ============================================================ */
+    :root {
+      --clr-bg:        #0a0b0f;        /* Deep near-black background     */
+      --clr-surface:   #111318;        /* Slightly lighter surface        */
+      --clr-card:      #161a22;        /* Card / panel background         */
+      --clr-accent:    #e8ff47;        /* Electric yellow-green accent    */
+      --clr-accent2:   #47ffe8;        /* Teal secondary accent           */
+      --clr-text:      #f0f0f0;        /* Primary text                    */
+      --clr-muted:     #7a8194;        /* Muted / secondary text          */
+      --clr-border:    rgba(255,255,255,0.07); /* Subtle borders          */
+
+      --ff-display:    'Bebas Neue', sans-serif;
+      --ff-body:       'DM Sans', sans-serif;
+
+      --radius:        12px;
+      --radius-lg:     20px;
+
+      --transition:    0.25s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+
+    /* ============================================================
+       1. STICKY NAVBAR
+       — display: flex keeps logo, links, and CTA in one row
+       — justify-content: space-between pushes the three groups apart
+       — align-items: center vertically centres everything
+       ============================================================ */
+    .navbar {
+      position: sticky;             /* Sticks to top on scroll          */
+      top: 0;
+      z-index: 100;
+
+      display: flex;                /* Flexbox layout                   */
+      justify-content: space-between; /* Logo | Links | CTA spread apart */
+      align-items: center;          /* All children vertically centred  */
+
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(10, 11, 15, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--clr-border);
+    }
+
+    /* Logo — left group */
+    .navbar__logo {
+      font-family: var(--ff-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      color: var(--clr-accent);
+    }
+
+    /* Nav links — centre group */
+    .navbar__links {
+      display: flex;                /* Row of links                     */
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .navbar__links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--clr-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .navbar__links a:hover { color: var(--clr-text); }
+
+    /* CTA button — far right */
+    .btn-cta {
+      padding: 0.55rem 1.4rem;
+      background: var(--clr-accent);
+      color: #0a0b0f;
+      font-family: var(--ff-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-cta:hover {
+      background: #d4e83e;
+      transform: translateY(-1px);
+    }
+
+
+    /* ============================================================
+       2. HERO SECTION
+       — Full viewport height (100vh)
+       — flex-direction: column stacks headline, sub-text, and buttons
+       — justify-content: center & align-items: center = full centring
+       ============================================================ */
+    .hero {
+      min-height: 100vh;            /* Full viewport height             */
+
+      display: flex;                /* Flexbox layout                   */
+      flex-direction: column;       /* Stack content vertically         */
+      justify-content: center;      /* Centre content along main axis   */
+      align-items: center;          /* Centre content along cross axis  */
+      text-align: center;
+
+      /* Multi-stop gradient background */
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(232,255,71,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 85% 80%, rgba(71,255,232,0.08) 0%, transparent 55%),
+        var(--clr-bg);
+
+      padding: 6rem 5% 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative background grid lines */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero__badge {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      background: rgba(232,255,71,0.1);
+      border: 1px solid rgba(232,255,71,0.3);
+      color: var(--clr-accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__title {
+      font-family: var(--ff-display);
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    /* Accent word highlight */
+    .hero__title span {
+      -webkit-text-stroke: 2px var(--clr-accent);
+      color: transparent;
+    }
+
+    .hero__sub {
+      max-width: 520px;
+      color: var(--clr-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Button group inside hero — also a flex container */
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.85rem 2rem;
+      background: var(--clr-accent);
+      color: #0a0b0f;
+      font-weight: 700;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-primary:hover { background: #d4e83e; transform: translateY(-2px); }
+
+    .btn-ghost {
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      color: var(--clr-muted);
+      font-size: 0.95rem;
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    .btn-ghost:hover { border-color: var(--clr-accent2); color: var(--clr-accent2); }
+
+
+    /* ============================================================
+       3. FEATURES ROW
+       — display: flex places all 3 cards side-by-side in one row
+       — gap adds even spacing between cards
+       — flex: 1 on each card means they share available width equally
+       ============================================================ */
+    .features {
+      padding: 6rem 5%;
+      background: var(--clr-surface);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: 0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* The three-card row */
+    .features__grid {
+      display: flex;                /* Flexbox — horizontal layout      */
+      gap: 1.5rem;                  /* Space between cards              */
+    }
+
+    /* Each card takes an equal share of the row */
+    .feature-card {
+      flex: 1;                      /* Equal width for all three cards  */
+
+      background: var(--clr-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .feature-card:hover {
+      border-color: rgba(232,255,71,0.25);
+      transform: translateY(-4px);
+    }
+
+    /* Icon circle */
+    .feature-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(232,255,71,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-card__title {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card__text {
+      color: var(--clr-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+
+    /* ============================================================
+       4. TWO-COLUMN SECTION
+       — display: flex places graphic and text side-by-side
+       — align-items: center vertically aligns both columns
+       — gap separates them with breathing room
+       ============================================================ */
+    .two-col {
+      padding: 6rem 5%;
+      background: var(--clr-bg);
+
+      display: flex;                /* Flexbox — two-column layout      */
+      align-items: center;          /* Vertically centre both columns   */
+      gap: 4rem;                    /* Space between image and text     */
+    }
+
+    /* Left column: decorative graphic panel */
+    .two-col__graphic {
+      flex: 1;                      /* Takes half the available space   */
+      min-height: 380px;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(ellipse 60% 60% at 40% 40%, rgba(71,255,232,0.15) 0%, transparent 65%),
+        var(--clr-card);
+      border: 1px solid var(--clr-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Abstract floating shapes inside the graphic panel */
+    .two-col__graphic::before {
+      content: '';
+      position: absolute;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 2px solid rgba(71,255,232,0.15);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .two-col__graphic::after {
+      content: '';
+      position: absolute;
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      border: 2px solid rgba(232,255,71,0.2);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .graphic-inner {
+      font-size: 4.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Right column: text content */
+    .two-col__content {
+      flex: 1;                      /* Takes the other half             */
+    }
+
+    .two-col__content .section-title { margin-bottom: 1rem; }
+
+    .two-col__content p {
+      color: var(--clr-muted);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* Small stats row inside text column — also flexbox */
+    .stats-row {
+      display: flex;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: 2.2rem;
+      color: var(--clr-accent);
+      letter-spacing: 0.02em;
+    }
+
+    .stat span {
+      font-size: 0.8rem;
+      color: var(--clr-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+
+    /* ============================================================
+       5. FOOTER
+       — display: flex places logo group, link columns, and social icons
+         on one horizontal row
+       — justify-content: space-between pushes all three groups apart
+       ============================================================ */
+    .footer {
+      background: var(--clr-surface);
+      border-top: 1px solid var(--clr-border);
+      padding: 4rem 5% 2.5rem;
+    }
+
+    /* Main footer row */
+    .footer__row {
+      display: flex;                /* Flexbox — horizontal layout      */
+      justify-content: space-between; /* Logo | Links | Socials spread  */
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Left: Logo + tagline */
+    .footer__brand .navbar__logo { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .footer__brand p { color: var(--clr-muted); font-size: 0.85rem; max-width: 200px; }
+
+    /* Centre: three link columns — also a flex container */
+    .footer__links {
+      display: flex;                /* Row of columns                   */
+      gap: 3.5rem;
+    }
+
+    .footer__col h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      margin-bottom: 1rem;
+    }
+
+    .footer__col li { margin-bottom: 0.6rem; }
+
+    .footer__col a {
+      color: var(--clr-muted);
+      font-size: 0.875rem;
+      transition: color var(--transition);
+    }
+
+    .footer__col a:hover { color: var(--clr-text); }
+
+    /* Right: social icons row */
+    .footer__social {
+      display: flex;                /* Row of social icon buttons       */
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--clr-border);
+      background: var(--clr-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      color: var(--clr-muted);
+      cursor: pointer;
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    .social-btn:hover { border-color: var(--clr-accent); color: var(--clr-accent); }
+
+    /* Footer bottom bar */
+    .footer__bottom {
+      border-top: 1px solid var(--clr-border);
+      padding-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--clr-muted);
+      text-align: center;
+    }
+
+  </style>

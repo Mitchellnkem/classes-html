@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NovaBuild - The Future of Construction</title>
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Google Fonts: Display + Body pairing -->
+  	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+	<!-- Sticky navbar : Flexbox: Justify-content: space between | Align-items: center -->
+
+
+	
+	<header class="navbar" role="banner">  <!-- /* Added this because it was missing earlier*/ --> 
+		
+		<!-- Logo  -->
+		<a href="#" class="navbar__logo" aria-label="NovaBuild Homes" >NovaBuild</a>
+
+		<!-- navigation -->
+		<nav class="navbar__links" aria-label="Primary navigation">
+			<a href="#features">Features</a>
+			<a href="#about">About</a>
+			<a href="#services">Services</a>
+			<a href="#contact">Contact</a>
+		</nav>
+
+		<!-- CTA button; Should be at the far right -->
+		<a href="#" class="btn-cta" role="button">Get Started</a>
+	</header>
+
+	   <!-- Hero section: Using Flebox -->
+	<main>
+		<section class="hero" aria-labelledby="hero-heading">
+			<span class="hero__badge">🏗️ Award-Winning Platform 2025</span>
+			<h1 class="hero__title" id="hero-heading">
+				Build The <br> <span>Future</span><br>Together
+			</h1>
+			
+				<p class="hero__sub">
+					NovaBuild connects architecs, engineers, and contractors on a single intelligent platform, streamlining project management and fostering collaboration for the construction industry with faster felivery and zero compromise.
+				</p>
+
+				<div class="hero__actions">
+					<a href="#features" class="btn-primary">Explore Features</a>
+				<a href="#about" class="btn-ghost">Watch Demo &rarr;</a>
+				</div>
+		</section>
+
+		<!-- FEatured row: using flexbox:  display: flex| gap| flex: 1 on each card -->
+
+		<section class="features" id="features" aria-labelledby="features-heading">
+			<p class="section-label">Why NovaBuild</p>
+			<h2 class="section-title" id="features-heading">Everything You Need</h2>
+
+			<!-- Three equal-width cards -->
+			<div class="features__grid">
+
+			<article class="feature-card">
+				<div class="feature-card__icon" aria-hidden="true">⚡</div>
+				<h3 class="feature-card__title">Real-Time Sync</h3>
+				<p class="feature-card__text">
+					Changes propagate instantly across all team members. No more version conflicts or miscommunication. Everyone stays on the same page, always.
+				</p>
+			</article>
+			<article class="feature-card">
+				<div class="feature-card__icon" aria-hidden="true">🛡️</div>
+				<h3 class="feature-card__title">Compliance Engine</h3>
+				<p class="feature-card__text">
+					Automated code checking against 100+ global standards. Ensure your designs meet all regulatory requirements with ease, reducing costly revisions and delays. Catch violations before they become costly site corrections.
+				</p>
+			</article>
+
+			<article class="feature-card">
+				<div class="feature-card__icon" aria-hidden="true">📊</div>
+				<h3 class="feature-card__title">Real-Time Smart Analytics</h3>
+				<p class="feature-card__text">
+					Track budget, timelines, and resource allocation with real-time dashboards. Our AI-driven insights help you identify bottlenecks and optimize project performance for on-time, on-budget delivery.
+				</p>
+			</article>
+			</div>
+		</section>
+
+		<!-- Two-column section using flexbox, display=flex, align-items=center, gap, left and right -->
+		 <section class="two-col" id="about" aria-labelledby="about-heading">
+			<!-- LEFT COLUMN: Graphic/image placeholder -->
+			 <div class="two-col__graphic" aria-hidden="true">
+				<div class="graphic-inner">🏙️</div>
+			 </div>
+
+
+			 <!-- RIGHT COLUMN: Text content -->
+			  <div class="two-col__content">
+				<p class="section-label">Our Story</p>
+				<h2 class="section-title" id="about-heading">Building the Future, Together</h2>
+
+				<p>Founded by few construction veteran and software engineers, Novabuild was born from the frustration of managing multi-million-dollar projects across spreadsheets and disconnected apps.</p>
+
+				<p>
+					Today our platform powers projects from single-home renovations to city-block commercial development - all through one intuitive interface.
+				</p>
+
+				<!-- STATISTICS: row flex child -->
+				 <div class="stats-row">
+						<div class="stat">
+							<strong>80K+</strong>
+							<span>Active Projects</span>
+						</div>
+
+						<div class="stat">
+							<strong>1K+</strong>
+							<span>Active Partner Firms</span>
+						</div>
+
+						<div class="stat">
+							<strong>95%</strong>
+							<span>Uptime SLA</span>
+						</div>
+				 </div>
+
+				 <a href="#" class="btn-primary" style="display: inline-block;">
+					Read more Case Studies &rarr;</a>
+			</div>
+
+		 </section>
+	</main>
+
+		<!-- FOOTER SECTION -->
+
+		<footer class="footer" id="contact" role="contentinfo">
+			
+			<div class="footer__row">
+			
+<!-- LEFT: BRAND / LOGO -->
+				<div class="footer__brand">
+					<div class="navbar__logo">NovaBuild</div>
+					<p>Intelligent construction management for the modern era.</p>
+				</div>
+
+				<!-- CENTRE: THREE LINKS COLUMS -->
+				 <nav class="footer__links" aria-label="Footer navigation">
+
+					<div class="footer__col">
+						<h4>Product</h4>
+						<ul>
+							<li><a href="#">Features</a></li>
+							<li><a href="#">Pricing</a></li>
+							<li><a href="#">Changelog</a></li>
+							<li><a href="#">Roadmap</a></li>
+						</ul>
+					</div>
+
+					<div class="footer__col">
+						<h4>Company</h4>
+						<ul>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Careers</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</div>
+
+					<div class="footer__col">
+						<h4>Support</h4>
+						<ul>
+							<li><a href="#">Help Center</a></li>
+							<li><a href="#">Terms of Service</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Status</a></li>
+						</ul>
+					</div>
+				 </nav>
+
+				 <!-- RIGHT SECTION: FOR SOCIALS -->
+
+				 <div class="footer__social" aria-label="Social media links">
+					<a href="#" class="social-btn" aria-label="Twitter /X">X</a>
+					<a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+					<a href="#" class="social-btn" aria-label="YouTube">▶</a>
+				 </div>
+
+			</div>
+
+				 <!-- Bottom Copyright bar -->
+				 <div class="footer__bottom">
+					<p>Copyright &copy; 2025 Novabuild Technologies Ltd. All rights reserved</p>
+				 </div>
+
+		</footer>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+
+	<script> 
+		function myFunction() {
+			document.getElementById("demo").innerHTML = "Paragraph changed.";
+		}
+	</script>
+</head>
+<body>
+	
+
+
+
+<h1>JAvascript in the body</h1>
+
+
+<p id="ry"></p>
+
+
+<h1 id="from"></h1>
+<h1 id="from"></h1>
+<h1 id="from"></h1>
+
+
+	<script>
+		document.getElementById("ry").innerHTML = "Hello JavaScript we are staring with a project today!";
+	</script>
+
+
+
+
+<h2>Demo JavaScript in Head</h2>
+
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+
+
+
+
+<script src="/javascript/script.js"></script>
+
+
+
+<h2>Activate Debugging</h2>
+
+<p>F12 on your keyboard will activate debugging.</p>
+<p>Then select "Console" in the debugger menu.</p>
+<p>Then click Run again.</p>
+
+<script>
+console.log(1 + 5 + 6);
+</script>
+
+<!-- <script>
+window.alert(5 + 6);
+</script> -->
+
+<script>
+document.write(8 + 5 + 6);
+</script>
+
+<br><br>
+<hr>
+<h1>JavaScript Numbers</h1>
+<h3>Number can be written with or without decimals.</h3>
+
+<p id="dem"></p>
+
+<script>
+document.getElementById("dem").innerHTML = 100 +50;
+</script>
+
+<h1>JavaScript Syntax</h1>
+<h3>The let and const keywords create variables</h3>
+
+<p id="dmo"></p>
+
+<!-- <script>
+let x = 5;
+const fname = "John";
+
+document.getElementById("dmo").innerHTML = fname + " is " + x + " years old.";
+</script> -->
+
+
+
+
+<br>
+<hr>
+
+<h1>JavaScript Operators</h1>
+<h2>The Assignment (=) Operator</h2>
+
+<p>The = operator is used to assign values to variables.</p>
+
+<p id="emo"></p>
+
+<script>
+let x = 5;
+let y = 6;
+let sum = x + y;
+
+document.getElementById("emo").innerHTML = "The sum is " + sum;
+</script>
+
+
+
+</body>
+</html>
