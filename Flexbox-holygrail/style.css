@@ -481,7 +481,7 @@ transform: translateY(-2px);
 
 /* Right: social icons row */
     .footer__social {
-      display: flex;                /* Row of social icon buttons       */
+      display: flex; /* Row of social icon buttons       */
       gap: 0.75rem;
       align-items: flex-start;
     }
